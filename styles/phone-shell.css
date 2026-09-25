@@ -233,35 +233,49 @@
 
 /* ── Hide case mode ── */
 
-.phone-shell-wrap[data-hide-case="1"] {
+.phone-shell-wrap {
   --phone-case-padding: 0px;
   --phone-case-border-size: 0px;
   --phone-frame-size: 0px;
-  --phone-frame-radius: var(--phone-screen-radius);
-  --phone-case-radius: var(--phone-screen-radius);
+  --phone-frame-radius: 0px;
+  --phone-case-radius: 0px;
+  --phone-screen-radius: 0px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
 }
 
-.phone-shell-wrap[data-hide-case="1"] .phone-case {
+.phone-shell-wrap .phone-case {
   padding: 0;
   border: 0;
   background: transparent;
   box-shadow: none;
+  width: 100%;
+  height: 100%;
 }
 
-.phone-shell-wrap[data-hide-case="1"] .phone-case::before,
-.phone-shell-wrap[data-hide-case="1"] .phone-case::after {
+.phone-shell-wrap .phone-case::before,
+.phone-shell-wrap .phone-case::after {
   display: none;
 }
 
-.phone-shell-wrap[data-hide-case="1"] .phone-frame {
+.phone-shell-wrap .phone-frame {
   padding: 0;
   background: transparent;
   box-shadow: none;
+  width: 100%;
+  height: 100%;
 }
 
-.phone-shell-wrap[data-hide-case="1"] .phone-frame::before,
-.phone-shell-wrap[data-hide-case="1"] .phone-frame::after {
+.phone-shell-wrap .phone-frame::before,
+.phone-shell-wrap .phone-frame::after {
   display: none;
+}
+
+.phone-shell {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
 }
 
 /* ── Desktop workspace ── */

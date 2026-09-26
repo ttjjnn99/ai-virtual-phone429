@@ -297,7 +297,7 @@
    裁剪边与屏幕边重合，阴影自然淡出；网格列仍按屏幕居中，位置不变。
    App 打开时（.app-open）必须保持原始宽度，否则所有 App 页面会被拓宽。 */
 .phone-workspace:not(.app-open) {
-  margin-inline: -12px;
+  margin-inline: 0;
 }
 .phone-workspace img {
   -webkit-user-drag: none;
@@ -1099,7 +1099,7 @@
 
   :root {
     --phone-screen-width: 100vw;
-    --phone-screen-height: 100vh;
+    --phone-screen-height: 100dvh;
   }
 
   html,

@@ -4128,6 +4128,38 @@ html,body{margin:0;padding:0;width:100%;height:100%;background:#121110;color:rgb
 
   return (
     <>
+      <div
+        ref={(el) => {
+          if (!el) return;
+          const measure = () => {
+            const q = (s: string) => document.querySelector(s) as HTMLElement | null;
+            const w = (s: string) => { const e = q(s); return e ? Math.round(e.getBoundingClientRect().width) : -1; };
+            const swipe = q(".phone-swipe-layer");
+            const cs = swipe ? getComputedStyle(swipe).transform : "none";
+            const grid = q(".icon-grid");
+            const gl = grid ? Math.round(grid.getBoundingClientRect().left) : -1;
+            const gr = grid ? Math.round(grid.getBoundingClientRect().right) : -1;
+            el.textContent =
+              "win=" + window.innerWidth +
+              " wrap=" + w(".phone-shell-wrap") +
+              " shell=" + w(".phone-shell") +
+              " ws=" + w(".phone-workspace") +
+              " swipe=" + w(".phone-swipe-layer") +
+              " grid=" + w(".icon-grid") +
+              " gL=" + gl + " gR=" + gr +
+              " tf=" + cs;
+          };
+          measure();
+          setTimeout(measure, 400);
+          setTimeout(measure, 1200);
+        }}
+        style={{
+          position: "fixed", left: 0, bottom: 44, zIndex: 999999,
+          background: "#000", color: "#0f0", fontSize: 11, lineHeight: 1.4,
+          padding: "4px 6px", maxWidth: "100vw", wordBreak: "break-all",
+          pointerEvents: "none", fontFamily: "monospace",
+        }}
+      />
       <section
         className="phone-shell-wrap"
         style={{
